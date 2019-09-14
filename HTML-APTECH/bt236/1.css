@@ -1,0 +1,16 @@
+.heading{
+	text-decoration: underline;
+	font-family: arial;
+	font-size: x-large;
+	font-weight: bold;
+
+}
+.places{
+	font-family: cursive;
+	font-size: medium;
+}
+ul{
+	font-size: small;
+	font-family: verdana;
+	list-style: square;
+}

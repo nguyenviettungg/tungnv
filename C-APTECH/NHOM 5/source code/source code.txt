@@ -1,0 +1,180 @@
+#include <iostream>
+#include <iomanip>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//de thi so 5-ass
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+using namespace std;
+typedef struct book_st
+{
+	char ten[50];
+	char theloai[50];
+	int giatien;
+	int namxuatban;
+}BOOK;
+void menu()
+{
+	printf("\n1.Nhap du lieu cua tung quyen sach.");
+    printf("\n2.Sap xep, hien thi thong tin chi tiet cua tung quyen sach theo the loai (Z->A). Thong ke sach theo nam xuat ban.");
+    printf("\n3.Tim  quyen sach theo the loai");
+    printf("\n4.Ghi vao tap tin nhi phan book.dat.");
+    printf("\n5.Thoat.");
+
+}
+void nhap(BOOK *b,int &n)
+{
+	//cout<<"nhap so quyen sach: ";
+	//cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		fflush(stdin);
+		printf("\nNhap quyen sach %d",i+1);//cout<<"\nNhap quyen sach "<<i+1<<" :";
+		cout<<"\nTen:";
+		fflush(stdin);
+		gets(b[i].ten);
+		cout<<"\nThe loai:";
+		gets(b[i].theloai);
+		cout<<"\nGia tien:";
+		cin>>b[i].giatien;
+		fflush(stdin);
+		cout<<"\nNam xuat ban:";
+		cin>>b[i].namxuatban;
+	}
+}
+void sapxepz_a(BOOK *b,int n)
+{
+	for(int i=0;i<n-1;i++)
+	{
+		for(int j=i+1;j<n;j++)
+		{
+			int cmp = strcmp(b[i].ten,b[j].ten);
+			if(cmp<0)
+			{
+				BOOK tmp = b[i];
+				b[i]=b[j];
+				b[j]=tmp;
+			}
+		}
+	}
+}
+void hienthi(BOOK *b,int n)
+{
+		sapxepz_a(b,n);
+		
+	
+	
+		cout<<"\nSTT ||          Ten             ||         The loai           ||       Gia tien       ||  Nam xuat ban  ";
+	    cout<<"\n========================================================================================================";
+	    for(int i=0;i<n;i++)
+	    {
+	    	cout<<"\n "<<setw(3)<<i+1<<"||"<<setw(26)<<b[i].ten<<"||"<<setw(28)<<b[i].theloai<<"||"<<setw(22)<<b[i].giatien<<"||"<<setw(8)<<b[i].namxuatban<<" ";
+		}
+	    
+		cout<<"\n========================================================================================================";
+	
+}
+
+void hoanvi(int &a,int &b)
+{
+	int temp;
+	a=temp;
+	a=b;
+	b=temp;
+}
+void sapxep(BOOK *b,int n)
+{
+	for(int i=0;i<n-1;i++)
+	{
+		for(int j=i+1;j<n;j++)
+		if(b[i].namxuatban>b[j].namxuatban) hoanvi(b[i].namxuatban,b[j].namxuatban);
+	}
+	
+}
+void demtheonam(BOOK *b,int n)
+{
+	sapxep(b,n);
+	//sort(b,b+n);
+    int counter = 1;
+    for(int i = 1; i < n;i++){
+        if(b[i].namxuatban == b[i-1].namxuatban) ++counter;
+        else{
+            cout<<"\nNam "<< b[i-1].namxuatban << " co " << counter << " quyen sach.";
+            counter = 1;
+        }
+    }
+    cout <<"\nNam "<< b[n-1].namxuatban << " co " << counter << " quyen sach.";
+}
+void timtheloai(BOOK *b,int n,char theLoai[50]){
+	for(int i=0;i<n;i++)
+	{
+		if(strcmp(b[i].theloai,theLoai)==0)
+		{
+			//hienthi(b,n);
+			cout<<"\nSTT ||          Ten             ||         The loai           ||       Gia tien       ||  Nam xuat ban  ";
+	    	cout<<"\n========================================================================================================";
+	    	//for(int i=0;i<n;i++)
+	    //{
+	    	cout<<"\n "<<setw(3)<<i+1<<"||"<<setw(26)<<b[i].ten<<"||"<<setw(28)<<b[i].theloai<<"||"<<setw(22)<<b[i].giatien<<"||"<<setw(8)<<b[i].namxuatban<<" ";
+		//}
+	    
+			cout<<"\n========================================================================================================";
+		}
+	}
+}
+
+int main(int argc, char** argv) {
+	int select,n,x;
+	BOOK *b;
+	char theLoai[50];
+	do{
+		menu();
+		cout<<"\nChon muc:";
+		cin>>select;
+		switch(select)
+		{
+			case 1:
+				cout<<"nhap so quyen sach: ";
+	            cin>>n;
+	            b = new BOOK[n];
+				nhap(b,n);
+				delete b;
+				break;
+			case 2:
+				//sort(b,n);
+				hienthi(b,n);
+				
+				demtheonam(b,n);
+				
+				
+				break;
+			case 3:
+				
+				cout<<"\nnhap the loai:";
+				fflush(stdin);
+				 gets(theLoai);
+				timtheloai(b,n,theLoai);
+				break;
+			case 4:
+				FILE *f;
+				if((f=fopen("book.dat","wb"))==NULL)
+				{
+					printf("khong the mo file!!!\n");
+					exit (0);
+				}
+				else
+					fwrite(b,sizeof(BOOK),1,f);
+					cout<<"ghi file thanh cong!!!";
+				fclose(f);
+				break;
+			case 5:
+				cout<<"\nExit!!!";
+				break;
+			
+		}
+	}while(select!=5);
+	
+	return 0;
+}

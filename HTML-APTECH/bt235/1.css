@@ -1,0 +1,18 @@
+.section{
+ margin-left: 5px;
+}
+h2.section{
+	text-decoration: underline;
+}
+.sub_section{
+margin-left: 12px;
+}
+h2.sub_section{
+	text-decoration: underline;
+}
+p.sub_section0{
+	margin-left: 12px;
+}
+p.sub_section{
+	margin-left: 30px;
+}

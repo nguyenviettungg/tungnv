@@ -1,0 +1,76 @@
+*{
+	margin: 0;
+	padding:0;
+}
+body{
+	background-color:#FFFFCC;
+ 
+}
+#navigation{
+	min-height: 100px;
+	width: 100%;
+	
+}
+#navigation h2{
+	text-decoration: underline;
+	text-transform: capitalize;
+	text-align: center;
+	font-size: 30px;
+	padding-left: 25%;
+	padding-top: 30px;
+}
+div.tablesection{
+	width: 295px;
+
+	background-color: yellow;
+}
+div.tablesection div{
+	text-transform: uppercase;
+	text-align: center;
+	background-color: rgb(255,185,115);
+	font-size: 1em;
+	font-family: arial;
+}
+.tablesection table{
+	table-layout: fixed;
+	text-align: center;
+	background-color: #FFFFDD;
+	margin-left: 5px;
+	
+}
+.tablesection table th{
+	border: 1px solid grey;
+	text-transform: capitalize;
+}
+div.option{
+	height: 37px;
+	width: 100%;
+	
+	display: block;
+}
+.option ul{
+	text-align: center;
+	width: 300px;
+	height: 35px;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+.option ul li{
+	float: left;
+	border: 2px solid ;
+	border-radius: 12px;
+	list-style-type: none; 
+	display: block;
+	text-align: center;
+	font-size: 25px;
+	margin-right: 5px;
+	background-color: green;
+
+
+}
+.option ul li a{
+	text-decoration: none;
+	color: black;
+}

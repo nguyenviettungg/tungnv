@@ -1,0 +1,98 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-image: url(1.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100%; 
+}
+.ten{
+	border: 20px double white;
+	font-family: 'Oswald', sans-serif;
+	font-weight: bold 700;
+	font-size: 100px;
+	text-align: center;
+	color: white;
+	display: block;
+	margin-bottom: 20px;
+}
+.banner{
+	text-align: center;
+}
+.banner img{
+	width: 1140px;
+	height: 332px;
+
+}
+.cangiua{
+	width: 1140px;
+	margin: auto;
+}
+.noidung{
+	width: 800px;
+}
+.tieude h2{
+	font-family: 'Roboto', sans-serif;
+	border-bottom: 5px solid gray;
+	color: mediumseagreen;
+	text-transform: uppercase;
+	margin-top: 102px;
+	margin-bottom: 30px;
+	padding-bottom: 8px;
+	font-size: 33px;
+
+}
+.tieude h2:hover{
+	color: orange;
+	font-size: 50px;
+	transition: 0.4s;
+	opacity: 0;
+	padding-left: 200px;
+}
+.tinto{
+	height: 370px;
+	border-bottom: 1px solid gray;
+	margin-bottom: 20px;
+	overflow: hidden;
+
+}
+.tinto img{
+	width: 350px;
+	height: 350px;
+	float: left;
+	display: block;
+	margin-right: 27px;
+}
+.tdtinto{
+	text-decoration: none;
+	font-size: 20px;
+	color: #ec054e;
+	margin-bottom: 7px;
+	display: block;
+	font-family: 'Roboto', sans-serif;
+}
+.tdtinto:hover{
+	color: orange;
+}
+.thongtin{
+	text-decoration: none;
+	margin-bottom: 10px;
+	font-size: 11px;
+	color: grey;
+	font-family: 'Roboto', sans-serif;
+}
+.tinto p{
+	color: #797676;
+	font-size: 13px;
+	font-family: tahoma;
+	list-style: 20px;
+}
+div.nhohon img{
+	width: 150px;
+	height: 150px;
+}
+div.nhohon{
+	height: 174px;
+}
